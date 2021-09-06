@@ -1,35 +1,31 @@
-`#technology1` `#technology2` `#technology3` `#master-in-software-engineering`
+`#javascript` `#reactjs` `#redux` `#master-in-software-engineering`
 
-# Pill/Project title <!-- omit in toc -->
+# Redux Pill
 
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
 </p>
 
-> Brief explanation of the purpose of this project, which is what they are going to create, the objective of carrying out this project, ...
+> In this project, you will learn how to set up the Redux library into a ReactJS project, save a global state into it and use its middlewares to perform async actions.
 >
-> You can separate the explanation in different paragraphs, use all the paragraphs that you need.
+> To achieve this goal, you will implement a real state portal with the functionality of search and filtering properties.
 
 ## Index <!-- omit in toc -->
 
 - [Requirements](#requirements)
 - [Repository](#repository)
-- [Running the tests (optional)](#running-the-tests-optional)
-- [Deployment (optional)](#deployment-optional)
 - [Technologies used](#technologies-used)
 - [Project delivery](#project-delivery)
 - [Resources](#resources)
 
 ## Requirements
 
-**This section details the main requirements of the project that the student must take into account. Delete this message in the final version of this `README.md`.**
+- You must use React Router for the routing of the App
+- On the home page, you must save the search field into Redux so you can retrieve it later when going to the filtering page.
+- For asynchronous calls to the backend API, you should use the Redux Thunk library.
+- All the code, including comments, needs to be written in English
+- You must use semantic HTML5 elements for all the contents of the application, main, section, form, input types, etc
 
-**Here are some examples of project requirements:**
-
-- You must develop this project using a single HTML page
-- You cannot use third-party libraries
-- You must use semantic HTML5 elements for all the contents of the application
-- \---
 
 ## Repository
 
@@ -39,61 +35,7 @@ To create a fork on GitHub is as easy as clicking the “fork” button on the r
 
 <img src="https://docs.github.com/assets/images/help/repository/fork_button.jpg" alt="Fork on GitHub" width='450'>
 
-### Installing (optional)
-
-**Include this section only if the pill/project need a previous setup.**
-
-A step by step series of examples that tell you how to get a development env
-running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a
-little demo
-
-## Running the tests (optional)
-
-**Include this section only if the pill/project has tests implemented.**
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment (optional)
-
-**Include this section only if the project needs to be deployed in a specific environment.**
-
-Add additional notes about how to deploy this on a live system
-
 ## Technologies used
-
-**This section details the technologies that are used within the project. Delete this message in the final version of this `README.md`.**
-
-**Here are some examples of technologies used:**
 
 \* HTML
 
@@ -101,9 +43,14 @@ Add additional notes about how to deploy this on a live system
 
 \* JS
 
+\* ReactJS
+
+\* Redux
+
+\* Redux Thunk
+
 \* LocalStorage
 
-\* ...
 
 ## Project delivery
 
@@ -117,7 +64,8 @@ To deliver this project you must follow the steps indicated in the document:
 
 **Here are some examples of resources:**
 
-- [JavaScript HTML DOM](https://www.w3schools.com/js/js_htmldom.asp)
-- [JavaScript Dates](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date)
-- [LocalStorage](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage)
-- [...](...)
+- [Getting Started with React](https://reactjs.org/docs/getting-started.html)
+- [Getting Started with Redux](https://redux.js.org/introduction/getting-started)
+- [Redux fundamentals](https://egghead.io/courses/fundamentals-of-redux-course-from-dan-abramov-bd5cc867)
+- [Redux thunk](https://github.com/reduxjs/redux-thunk)
+- [Debounce](https://www.freecodecamp.org/espanol/news/curso-debounce-javascript-como-hacer-que-tu-js-espere/)
