@@ -1,3 +1,4 @@
+import { initialState } from './state';
 import {
     FILTER_TYPE,
     FILTER_CONDITION,
@@ -13,12 +14,20 @@ import {
     FILTER_DATE,
 } from './types';
 
+
 // filter functions
-export const filterbyTypes = () => {
-    return {
-        type: FILTER_TYPE,
-    }
-}
+export const filterbyTypes = (checkValues = initialState, action) => {
+
+    const { propertiesData } = checkValues
+
+
+    const filteredProperties = Object.values(propertiesData).filter(property => property.type === action.value);
+    checkValues.propertiesData = filteredProperties
+    return checkValues
+
+
+};
+
 export const filterbyCondition = () => {
     return {
         type: FILTER_CONDITION,

@@ -1,13 +1,37 @@
 import React, { useState } from 'react'
-
+import { useDispatch } from 'react-redux'
 
 export default function FilterSection() {
+    const dispatch = useDispatch()
 
     const [searchSettings, setSearchSettings] = useState({ flat: false, house: false });
 
     const handleCheck = (e) => {
-        const { name, checked } = e.target;
-        setSearchSettings({ ...searchSettings, [name]: checked });
+
+        const { name, title, id } = e.target;
+        if (e.target.checked) {
+            dispatch({
+                type: title,
+                propertyElement: name,
+                value: id
+            });
+        } else {
+            // uncheck filter
+            dispatch({
+                type: title,
+                propertyElement: name,
+                value: id
+            });
+        }
+    }
+
+    const filterbyNumber = (e) => {
+    }
+
+    const filterbyRange = (e) => {
+    }
+
+    const filterbySelector = (e) => {
     }
     return (
         <>
@@ -15,25 +39,25 @@ export default function FilterSection() {
                 <div>
                     <h6>Type of Home</h6>
                     <div className="form-check">
-                        <input name="flat" className="form-check-input" type="checkbox" value={searchSettings.flat} id="flexCheckDefault" onChange={handleCheck} />
+                        <input name="type" className="form-check-input" type="checkbox" id="flat/apartment" title='FILTER_TYPE' onChange={handleCheck} />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             Flat/Apartment
                         </label>
                     </div>
                     <div className="form-check">
-                        <input name="house" className="form-check-input" type="checkbox" value={searchSettings.house} id="flexCheckDefault" onChange={handleCheck} />
+                        <input name="type" className="form-check-input" type="checkbox" id="house" title='FILTER_TYPE' onChange={handleCheck} />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             House
                         </label>
                     </div>
                     <div className="form-check">
-                        <input name="house" className="form-check-input" type="checkbox" value={searchSettings.duplex} id="flexCheckDefault" onChange={handleCheck} />
+                        <input name="type" className="form-check-input" type="checkbox" id="duplex" title="FILTER_TYPE" onChange={handleCheck} />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             Duplex
                         </label>
                     </div>
                     <div className="form-check">
-                        <input name="house" className="form-check-input" type="checkbox" value={searchSettings.penthouse} id="flexCheckDefault" onChange={handleCheck} />
+                        <input name="type" className="form-check-input" type="checkbox" id="penthouse" title="FILTER_TYPE" onChange={handleCheck} />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             PentHouse
                         </label>
@@ -43,19 +67,19 @@ export default function FilterSection() {
                 <div>
                     <h6>Condition</h6>
                     <div className="form-check">
-                        <input name="flat" className="form-check-input" type="checkbox" value={searchSettings.newHomes} id="flexCheckDefault" onChange={handleCheck} />
+                        <input name="condition" className="form-check-input" type="checkbox" id="new" title="FILTER_CONDITION" onChange={handleCheck} />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             New Homes
                         </label>
                     </div>
                     <div className="form-check">
-                        <input name="house" className="form-check-input" type="checkbox" value={searchSettings.needsReno} id="flexCheckDefault" onChange={handleCheck} />
+                        <input name="condition" className="form-check-input" type="checkbox" id="needs renovation" title="FILTER_CONDITION" onChange={handleCheck} />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             Needs renovation
                         </label>
                     </div>
                     <div className="form-check">
-                        <input name="house" className="form-check-input" type="checkbox" value={searchSettings.house} id="flexCheckDefault" onChange={handleCheck} />
+                        <input name="condition" className="form-check-input" type="checkbox" id="good" title="FILTER_CONDITION" onChange={handleCheck} />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             Good condition
                         </label>

@@ -7,7 +7,6 @@ export default function Dashboard() {
     return (
         <div>
             <NavBar />
-            Hello from Dashboard
             <FilterSection />
             <br />
             <HomeList />

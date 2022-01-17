@@ -1,10 +1,7 @@
-import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { connect } from "react-redux";
 
-export default function HomeList() {
 
-    const properties = useSelector(state => state.filter.propertiesData)
-
+const HomeListConnect = ({ properties }) => {
     return (
         <div>
             {properties.map(item => <ul>
@@ -20,11 +17,11 @@ export default function HomeList() {
                 <li key={`condition-${item.id}`}>Condition: {item.condition}</li>
                 <li key={`bath-${item.id}`}>Bathrooms: {item.bath}</li>
                 <li key={`size-${item.id}`}>Size: {item.size}</li>
-                <li key={`pet-${item.id}`}>Pet: {item.pet ? "Yes" : "No"}</li>
-                <li key={`garden-${item.id}`}>Garden: {item.garden ? "Yes" : "No"}</li>
-                <li key={`air-${item.id}`}>Air conditioning: {item.air_conditioning ? "Yes" : "No"}</li>
-                <li key={`swimming-${item.id}`}>Swimming Pool: {item.swimming_pool ? "Yes" : "No"}</li>
-                <li key={`terrace-${item.id}`}>Terrace: {item.terrace ? "Yes" : "No"}</li>
+                <li key={`pet-${item.id}`}>Pet: {item.pet}</li>
+                <li key={`garden-${item.id}`}>Garden: {item.garden}</li>
+                <li key={`air-${item.id}`}>Air conditioning: {item.air_conditioning}</li>
+                <li key={`swimming-${item.id}`}>Swimming Pool: {item.swimming_pool}</li>
+                <li key={`terrace-${item.id}`}>Terrace: {item.terrace}</li>
                 <li key={`date-${item.id}`}>Publication Date: {item.publication_date}</li>
                 <li key={`price-${item.id}`}>Price: {item.price}</li>
                 <li key={`rooms-${item.id}`}>Rooms: {item.room}</li>
@@ -32,3 +29,13 @@ export default function HomeList() {
         </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        properties: state.filter.propertiesData
+    }
+};
+
+const reduxHoc = connect(mapStateToProps);
+
+export default reduxHoc(HomeListConnect);

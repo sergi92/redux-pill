@@ -15,14 +15,14 @@ import {
 } from './types';
 
 import { initialState } from './state';
+import { filterbyTypes } from './actions';
+
 
 const filterReducer = (state = initialState, action) => {
     switch (action.type) {
         case FILTER_TYPE:
-            return {
-                ...state,
-                filter: action.filter
-            }
+            return filterbyTypes(state, action)
+
         case FILTER_CONDITION:
 
             return {
