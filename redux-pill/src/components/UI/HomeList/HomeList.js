@@ -1,13 +1,24 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { getProperties } from '../../../redux/filter/actions'
+const data = require('../../../components/db/data')
 
 export default function HomeList() {
 
-    const properties = useSelector(state => state.filter.propertiesData)
+    const properties = useSelector(state => state.properties)
+    const dispatch = useDispatch()
+
+    // console.log(properties)
+    // getProperties()
+
+    useEffect(() => {
+        // dispatch(getProperties())
+        dispatch(getProperties())
+    }, [dispatch])
 
     return (
         <div>
-            {properties.map(item => <ul>
+            {/* {properties.map(item => <ul>
                 <li key={`street-${item.id}`}>Street: {item.street}</li>
                 <li key={`number-${item.id}`}>Number: {item.number}</li>
                 <li key={`city-${item.id}`}>City: {item.city}</li>
@@ -28,7 +39,7 @@ export default function HomeList() {
                 <li key={`date-${item.id}`}>Publication Date: {item.publication_date}</li>
                 <li key={`price-${item.id}`}>Price: {item.price}</li>
                 <li key={`rooms-${item.id}`}>Rooms: {item.room}</li>
-            </ul>)}
+            </ul>)} */}
         </div>
     )
 }

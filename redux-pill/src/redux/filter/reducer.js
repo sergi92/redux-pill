@@ -12,11 +12,25 @@ import {
     FILTER_SWIMMING_POOL,
     FILTER_TERRACE,
     FILTER_DATE,
+    GET_PROPERTIES
 } from './types';
 
 import { initialState } from './state';
-import { filterbyTypes } from './actions';
-
+import {
+    filterbyTypes,
+    filterbyCondition,
+    filterbyRooms,
+    filterbyBathrooms,
+    filterbySize,
+    filterbyPrice,
+    filterbyPet,
+    filterbyGarden,
+    filterbyAirConditioning,
+    filterbySwimmingPool,
+    filterbyTerrace,
+    filterbyDate,
+} from './actions';
+// import { getProperties } from '../../api/jsonserver';
 
 const filterReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -25,52 +39,39 @@ const filterReducer = (state = initialState, action) => {
 
         case FILTER_CONDITION:
 
-            return {
-                ...state,
-                filter: action.filter
-            }
-        case FILTER_ROOMS:
+            return filterbyCondition(state, action)
 
-            return {
-                ...state,
-                filter: action.filter
-            }
+        case FILTER_ROOMS:
+            return filterbyRooms(state, action)
         case FILTER_BATHROOMS:
 
-            return {
-            }
+            return filterbyBathrooms(state, action)
         case FILTER_SIZE:
 
-            return {
-            }
+            return filterbySize(state, action)
         case FILTER_PRICE:
 
-            return {
-            }
+            return filterbyPrice(state, action)
         case FILTER_PET:
 
-            return {
-            }
+            return filterbyPet(state, action)
         case FILTER_GARDEN:
 
-            return {
-            }
+            return filterbyGarden(state, action)
         case FILTER_AIR_CONDITIONING:
 
-            return {
-            }
+            return filterbyAirConditioning(state, action)
         case FILTER_SWIMMING_POOL:
 
-            return {
-            }
+            return filterbySwimmingPool(state, action)
         case FILTER_TERRACE:
 
-            return {
-            }
+            return filterbyTerrace(state, action)
         case FILTER_DATE:
 
-            return {
-            }
+            return filterbyDate(state, action)
+        case GET_PROPERTIES:
+        return 
 
         default:
             return state
