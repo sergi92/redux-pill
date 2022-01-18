@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { applyFilter } from '../../../redux/filter/actions'
 export default function FilterSection() {
     const filter = useSelector(state => state.filter)
     const dispatch = useDispatch()
@@ -8,15 +9,24 @@ export default function FilterSection() {
     const [searchSettings, setSearchSettings] = useState({ flat: false, house: false });
 
 
+    // const handleType = (e) => {
+
+    //     const { value } = e.target;
+
+    //     dispatch({
+    //         type: 'FILTER_TYPE',
+    //         propertyElement: 'type',
+    //         value
+    //     });
+    // }
     const handleType = (e) => {
 
         const { value } = e.target;
 
-        dispatch({
-            type: 'FILTER_TYPE',
-            propertyElement: 'type',
+        dispatch(applyFilter(
+            'type',
             value
-        });
+        ));
     }
 
     const handleCondition = (e) => {
@@ -141,6 +151,10 @@ export default function FilterSection() {
             value
         })
     }
+    useEffect(() => {
+        // dispatch(getProperties())
+        dispatch(applyFilter())
+    }, [dispatch])
 
     return (
         <>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getProperties } from '../../../redux/filter/actions'
+import { getProperties, applyFilter } from '../../../redux/filter/actions'
 const data = require('../../../components/db/data')
 
 export default function HomeList() {
@@ -11,10 +11,10 @@ export default function HomeList() {
     // console.log(properties)
     // getProperties()
 
-    useEffect(() => {
-        // dispatch(getProperties())
-        dispatch(getProperties())
-    }, [dispatch])
+    // useEffect(() => {
+    //     // dispatch(getProperties())
+    //     dispatch(applyFilter())
+    // }, [dispatch])
 
     return (
         <div>

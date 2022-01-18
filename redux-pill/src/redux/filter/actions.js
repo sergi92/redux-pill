@@ -14,7 +14,7 @@ import {
     FILTER_DATE,
 } from './types';
 
-import { asyncGetProperties } from '../../api/jsonserver';
+import { asyncGetProperties, asyncApplyFilter } from '../../api/jsonserver';
 // filter functions
 export const filterbyTypes = (checkValues = initialState, action) => {
     const index = checkValues.filters[action.propertyElement].indexOf(action.value);
@@ -175,6 +175,13 @@ export const filterbyDate = (checkValues = initialState, action) => {
 export const getProperties = () => {
     return async (dispatch) => {
         const { data } = await asyncGetProperties();
+        console.log(data)
+    }
+}
+
+export const applyFilter = (filter, filterParams) => {
+    return async (dispatch) => {
+        const data = await asyncApplyFilter("http://localhost:3000", filter, filterParams);
         console.log(data)
     }
 }

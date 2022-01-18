@@ -11,7 +11,13 @@ const BASE_URL = 'http://localhost:3000';
 
 
 export const asyncGetProperties = async (url = BASE_URL) => {
-    return http.get(`${BASE_URL}/properties`);
+    return http.get(`${url}/properties`);
+}
+
+
+export const asyncApplyFilter = async (url = BASE_URL, filter, filterParams) => {
+    const data = await http.get(`${url}/properties?${filter}=${filterParams}`)
+    return data;
 }
 
 
