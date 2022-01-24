@@ -7,11 +7,7 @@ import NavBar from '../../UI/NavBar'
 import HomeList from '../../UI/HomeList'
 import FilterSection from '../../UI/FilterSection'
 export default function Dashboard() {
-    const dispatch = useDispatch()
-    // useEffect(() => {
-    //     // dispatch(getProperties())
-    //     dispatch(applyFilter())
-    // }, [dispatch])
+
     return (
         <div>
             <NavBar />

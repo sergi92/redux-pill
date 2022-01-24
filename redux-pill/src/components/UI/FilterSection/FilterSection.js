@@ -1,32 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { BASE_URL } from '../../../api/jsonserver'
 
 import { applyFilter } from '../../../redux/filter/actions'
 export default function FilterSection() {
     const filter = useSelector(state => state.filter)
     const dispatch = useDispatch()
 
-    const [searchSettings, setSearchSettings] = useState({ flat: false, house: false });
 
-
-    // const handleType = (e) => {
-
-    //     const { value } = e.target;
-
-    //     dispatch({
-    //         type: 'FILTER_TYPE',
-    //         propertyElement: 'type',
-    //         value
-    //     });
-    // }
     const handleType = (e) => {
 
         const { value } = e.target;
 
-        dispatch(applyFilter(
-            'type',
+
+        dispatch({
+            type: 'FILTER_CONDITION',
+            propertyElement: 'condition',
             value
-        ));
+        });
     }
 
     const handleCondition = (e) => {
@@ -151,10 +142,11 @@ export default function FilterSection() {
             value
         })
     }
-    useEffect(() => {
-        // dispatch(getProperties())
-        dispatch(applyFilter())
-    }, [dispatch])
+    // useEffect(() => {
+    //     // const propertyFilters = filter
+    //     // console.log(`Filters: ${filter}`)
+    //     // dispatch(applyFilter(propertyFilters))
+    // }, [dispatch])
 
     return (
         <>
@@ -162,25 +154,25 @@ export default function FilterSection() {
                 <div>
                     <h6>Type of Home</h6>
                     <div className="form-check">
-                        <input name="type" className="form-check-input" type="checkbox" value="flat/apartment" onChange={handleType} checked={filter.filters.type.includes("flat/apartment")} />
+                        <input name="type" className="form-check-input" type="checkbox" value="flat/apartment" onChange={handleType} checked={filter.type.includes("flat/apartment")} />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             Flat/Apartment
                         </label>
                     </div>
                     <div className="form-check">
-                        <input name="type" className="form-check-input" type="checkbox" value="house" onChange={handleType} checked={filter.filters.type.includes("house")} />
+                        <input name="type" className="form-check-input" type="checkbox" value="house" onChange={handleType} checked={filter.type.includes("house")} />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             House
                         </label>
                     </div>
                     <div className="form-check">
-                        <input name="type" className="form-check-input" type="checkbox" value="duplex" onChange={handleType} checked={filter.filters.type.includes("duplex")} />
+                        <input name="type" className="form-check-input" type="checkbox" value="duplex" onChange={handleType} checked={filter.type.includes("duplex")} />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             Duplex
                         </label>
                     </div>
                     <div className="form-check">
-                        <input name="type" className="form-check-input" type="checkbox" value="penthouse" onChange={handleType} checked={filter.filters.type.includes("penthouse")} />
+                        <input name="type" className="form-check-input" type="checkbox" value="penthouse" onChange={handleType} checked={filter.type.includes("penthouse")} />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             PentHouse
                         </label>
@@ -190,19 +182,19 @@ export default function FilterSection() {
                 <div>
                     <h6>Condition</h6>
                     <div className="form-check">
-                        <input name="condition" className="form-check-input" type="checkbox" value="new" onChange={handleCondition} checked={filter.filters.condition.includes("new")} />
+                        <input name="condition" className="form-check-input" type="checkbox" value="new" onChange={handleCondition} checked={filter.condition.includes("new")} />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             New Homes
                         </label>
                     </div>
                     <div className="form-check">
-                        <input name="condition" className="form-check-input" type="checkbox" value="needs renovation" onChange={handleCondition} checked={filter.filters.condition.includes("needs renovation")} />
+                        <input name="condition" className="form-check-input" type="checkbox" value="needs renovation" onChange={handleCondition} checked={filter.condition.includes("needs renovation")} />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             Needs renovation
                         </label>
                     </div>
                     <div className="form-check">
-                        <input name="condition" className="form-check-input" type="checkbox" value="good" onChange={handleCondition} checked={filter.filters.condition.includes("good")} />
+                        <input name="condition" className="form-check-input" type="checkbox" value="good" onChange={handleCondition} checked={filter.condition.includes("good")} />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             Good condition
                         </label>
@@ -261,31 +253,31 @@ export default function FilterSection() {
                     <div>
                         <h6>Type of Home</h6>
                         <div className="form-check">
-                            <input name="pets" className="form-check-input" type="checkbox" value="true" onChange={handlePet} checked={filter.filters.pets.includes("true")} />
+                            <input name="pets" className="form-check-input" type="checkbox" value="true" onChange={handlePet} checked={filter.pets.includes("true")} />
                             <label className="form-check-label" htmlFor="flexCheckDefault">
                                 Pets allowed
                             </label>
                         </div>
                         <div className="form-check">
-                            <input name="swimming_pool" className="form-check-input" type="checkbox" value="true" onChange={handleSwimmingPool} checked={filter.filters.swimming_pool.includes("true")} />
+                            <input name="swimming_pool" className="form-check-input" type="checkbox" value="true" onChange={handleSwimmingPool} checked={filter.swimming_pool.includes("true")} />
                             <label className="form-check-label" htmlFor="flexCheckDefault">
                                 Swimming Pool
                             </label>
                         </div>
                         <div className="form-check">
-                            <input name="garden" className="form-check-input" type="checkbox" value="true" onChange={handleGarden} checked={filter.filters.garden.includes("true")} />
+                            <input name="garden" className="form-check-input" type="checkbox" value="true" onChange={handleGarden} checked={filter.garden.includes("true")} />
                             <label className="form-check-label" htmlFor="flexCheckDefault">
                                 Garden
                             </label>
                         </div>
                         <div className="form-check">
-                            <input name="air_conditioning" className="form-check-input" type="checkbox" value="true" onChange={handleAirConditioning} checked={filter.filters.air_conditioning.includes("true")} />
+                            <input name="air_conditioning" className="form-check-input" type="checkbox" value="true" onChange={handleAirConditioning} checked={filter.air_conditioning.includes("true")} />
                             <label className="form-check-label" htmlFor="flexCheckDefault">
                                 Air conditioning
                             </label>
                         </div>
                         <div className="form-check">
-                            <input name="terrace" className="form-check-input" type="checkbox" value="true" onChange={handleTerrace} checked={filter.filters.terrace.includes("true")} />
+                            <input name="terrace" className="form-check-input" type="checkbox" value="true" onChange={handleTerrace} checked={filter.terrace.includes("true")} />
                             <label className="form-check-label" htmlFor="flexCheckDefault">
                                 Terrace
                             </label>

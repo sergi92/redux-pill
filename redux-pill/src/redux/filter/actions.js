@@ -14,18 +14,19 @@ import {
     FILTER_DATE,
 } from './types';
 
+import { BASE_URL } from '../../api/jsonserver';
 import { asyncGetProperties, asyncApplyFilter } from '../../api/jsonserver';
 // filter functions
 export const filterbyTypes = (checkValues = initialState, action) => {
-    const index = checkValues.filters[action.propertyElement].indexOf(action.value);
+    const index = checkValues[action.propertyElement].indexOf(action.value);
 
     if (index !== -1) {
-        checkValues.filters[action.propertyElement].splice(index, 1);
+        checkValues[action.propertyElement].splice(index, 1);
     } else {
-        checkValues.filters[action.propertyElement].push(action.value)
+        checkValues[action.propertyElement].push(action.value)
     }
 
-    console.log(checkValues.filters)
+    console.log(checkValues)
     console.log(action.value, action.propertyElement, index);
 
     return { ...checkValues }
@@ -34,53 +35,53 @@ export const filterbyTypes = (checkValues = initialState, action) => {
 
 
 export const filterbyCondition = (checkValues = initialState, action) => {
-    const index = checkValues.filters[action.propertyElement].indexOf(action.value);
+    const index = checkValues[action.propertyElement].indexOf(action.value);
     if (index !== -1) {
-        checkValues.filters[action.propertyElement].splice(index, 1);
+        checkValues[action.propertyElement].splice(index, 1);
     } else {
-        checkValues.filters[action.propertyElement].push(action.value)
+        checkValues[action.propertyElement].push(action.value)
     }
 
-    console.log(checkValues.filters)
+    console.log(checkValues)
     console.log(action.value, action.propertyElement, index);
 
     return { ...checkValues }
 }
 export const filterbyRooms = (checkValues = initialState, action) => {
-    const index = checkValues.filters[action.propertyElement].indexOf(action.value);
+    const index = checkValues[action.propertyElement].indexOf(action.value);
     if (index !== -1) {
-        checkValues.filters[action.propertyElement].splice(index, 1);
+        checkValues[action.propertyElement].splice(index, 1);
     } else {
-        checkValues.filters[action.propertyElement].push(action.value)
+        checkValues[action.propertyElement].push(action.value)
     }
 
-    console.log(checkValues.filters)
+    console.log(checkValues)
     console.log(action.value, action.propertyElement, index);
 
     return { ...checkValues }
 }
 export const filterbyBathrooms = (checkValues = initialState, action) => {
-    const index = checkValues.filters[action.propertyElement].indexOf(action.value);
+    const index = checkValues[action.propertyElement].indexOf(action.value);
     if (index !== -1) {
-        checkValues.filters[action.propertyElement].splice(index, 1);
+        checkValues[action.propertyElement].splice(index, 1);
     } else {
-        checkValues.filters[action.propertyElement].push(action.value)
+        checkValues[action.propertyElement].push(action.value)
     }
 
-    console.log(checkValues.filters)
+    console.log(checkValues)
     console.log(action.value, action.propertyElement, index);
 
     return { ...checkValues }
 }
 export const filterbySize = (checkValues = initialState, action) => {
-    const index = checkValues.filters[action.propertyElement].indexOf(action.value);
+    const index = checkValues[action.propertyElement].indexOf(action.value);
     if (index !== -1) {
-        checkValues.filters[action.propertyElement].splice(index, 1);
+        checkValues[action.propertyElement].splice(index, 1);
     } else {
-        checkValues.filters[action.propertyElement].push(action.value)
+        checkValues[action.propertyElement].push(action.value)
     }
 
-    console.log(checkValues.filters)
+    console.log(checkValues)
     console.log(action.value, action.propertyElement, index);
 
     return { ...checkValues }
@@ -92,66 +93,66 @@ export const filterbyPrice = () => {
 }
 export const filterbyPet = (checkValues = initialState, action) => {
     console.log(action)
-    const index = checkValues.filters[action.propertyElement].indexOf(action.value);
+    const index = checkValues[action.propertyElement].indexOf(action.value);
     if (index !== -1) {
-        checkValues.filters[action.propertyElement].splice(index, 1);
+        checkValues[action.propertyElement].splice(index, 1);
     } else {
-        checkValues.filters[action.propertyElement].push(action.value)
+        checkValues[action.propertyElement].push(action.value)
     }
 
-    console.log(checkValues.filters)
+    console.log(checkValues)
     console.log(action.value, action.propertyElement, index);
 
     return { ...checkValues }
 }
 export const filterbyGarden = (checkValues = initialState, action) => {
-    const index = checkValues.filters[action.propertyElement].indexOf(action.value);
+    const index = checkValues[action.propertyElement].indexOf(action.value);
     if (index !== -1) {
-        checkValues.filters[action.propertyElement].splice(index, 1);
+        checkValues[action.propertyElement].splice(index, 1);
     } else {
-        checkValues.filters[action.propertyElement].push(action.value)
+        checkValues[action.propertyElement].push(action.value)
     }
 
-    console.log(checkValues.filters)
+    console.log(checkValues)
     console.log(action.value, action.propertyElement, index);
 
     return { ...checkValues }
 }
 export const filterbyAirConditioning = (checkValues = initialState, action) => {
-    const index = checkValues.filters[action.propertyElement].indexOf(action.value);
+    const index = checkValues[action.propertyElement].indexOf(action.value);
     if (index !== -1) {
-        checkValues.filters[action.propertyElement].splice(index, 1);
+        checkValues[action.propertyElement].splice(index, 1);
     } else {
-        checkValues.filters[action.propertyElement].push(action.value)
+        checkValues[action.propertyElement].push(action.value)
     }
 
-    console.log(checkValues.filters)
+    console.log(checkValues)
     console.log(action.value, action.propertyElement, index);
 
     return { ...checkValues }
 }
 export const filterbySwimmingPool = (checkValues = initialState, action) => {
-    const index = checkValues.filters[action.propertyElement].indexOf(action.value);
+    const index = checkValues[action.propertyElement].indexOf(action.value);
     if (index !== -1) {
-        checkValues.filters[action.propertyElement].splice(index, 1);
+        checkValues[action.propertyElement].splice(index, 1);
     } else {
-        checkValues.filters[action.propertyElement].push(action.value)
+        checkValues[action.propertyElement].push(action.value)
     }
 
-    console.log(checkValues.filters)
+    console.log(checkValues)
     console.log(action.value, action.propertyElement, index);
 
     return { ...checkValues }
 }
 export const filterbyTerrace = (checkValues = initialState, action) => {
-    const index = checkValues.filters[action.propertyElement].indexOf(action.value);
+    const index = checkValues[action.propertyElement].indexOf(action.value);
     if (index !== -1) {
-        checkValues.filters[action.propertyElement].splice(index, 1);
+        checkValues[action.propertyElement].splice(index, 1);
     } else {
-        checkValues.filters[action.propertyElement].push(action.value)
+        checkValues[action.propertyElement].push(action.value)
     }
 
-    console.log(checkValues.filters)
+    console.log(checkValues)
     console.log(action.value, action.propertyElement, index);
 
     return { ...checkValues }
@@ -159,29 +160,16 @@ export const filterbyTerrace = (checkValues = initialState, action) => {
 
 export const filterbyDate = (checkValues = initialState, action) => {
 
-    const index = checkValues.filters[action.propertyElement].indexOf(action.value);
-    const valueLength = checkValues.filters[action.propertyElement].length
+    const index = checkValues[action.propertyElement].indexOf(action.value);
+    const valueLength = checkValues[action.propertyElement].length
     if (valueLength !== 0) {
-        checkValues.filters[action.propertyElement].splice(index, 1);
-        checkValues.filters[action.propertyElement].push(action.value)
+        checkValues[action.propertyElement].splice(index, 1);
+        checkValues[action.propertyElement].push(action.value)
     } else {
-        checkValues.filters[action.propertyElement].push(action.value)
+        checkValues[action.propertyElement].push(action.value)
     }
-    console.log(checkValues.filters)
+    console.log(checkValues)
     console.log(action.value, action.propertyElement, valueLength);
     return { ...checkValues }
 }
 
-export const getProperties = () => {
-    return async (dispatch) => {
-        const { data } = await asyncGetProperties();
-        console.log(data)
-    }
-}
-
-export const applyFilter = (filter, filterParams) => {
-    return async (dispatch) => {
-        const data = await asyncApplyFilter("http://localhost:3000", filter, filterParams);
-        console.log(data)
-    }
-}
