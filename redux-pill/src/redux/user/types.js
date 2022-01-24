@@ -1,4 +1,8 @@
-const USER_LOGIN = 'USER_LOGIN';
-const USER_LOGOUT = 'USER_LOGOUT';
-const USER_REGISTER = 'USER_REGISTER';
-const USER_RESET_PASSWORD = 'USER_RESET_PASSWORD';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const LOGOUT = 'LOGOUT';
+
+
+
+// llamar a una funcion y ejecutarla con el parametro del parantesis de al lado
+// require('hjkl')(whatever)

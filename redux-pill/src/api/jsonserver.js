@@ -2,15 +2,9 @@ import axios from "axios";
 import { stringify } from "query-string";
 export const BASE_URL = 'http://localhost:3000';
 
-
-
 // export const asyncGetProperties = async (url = BASE_URL) => {
 //     return http.get(`${url}/properties`);
 // }
-
-
-
-
 
 export async function getProperties(filter) {
     const {
@@ -55,7 +49,6 @@ export async function getProperties(filter) {
 
     return response.data;
 }
-
 
 
 

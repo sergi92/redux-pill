@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchProperties } from '../../../redux/properties/actions';
-const data = require('../../../components/db/data')
 
 export default function HomeList() {
 
@@ -9,11 +8,6 @@ export default function HomeList() {
     const properties = useSelector((state) => state.properties);
 
     const dispatch = useDispatch()
-
-    // const { status, error, result } = properties;
-
-    // console.log(properties)
-    // getProperties()
 
     useEffect(() => {
         dispatch(fetchProperties(filter))
